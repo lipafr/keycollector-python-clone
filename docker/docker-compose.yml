@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  keycollector-app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    container_name: keycollector-python
+    ports:
+      - "5000:5000"
+    volumes:
+      - ../data:/app/data
+    environment:
+      - PYTHONPATH=/app
+    restart: unless-stopped

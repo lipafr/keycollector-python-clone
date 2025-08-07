@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+venv/
+env/
+.env
+
+# IDE
+.vscode/settings.json
+*.swp
+*.swo
+
+# Data files
+data/temp/*
+data/output/*
+!data/temp/.gitkeep
+!data/output/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker
+.dockerignore
