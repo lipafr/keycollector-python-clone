@@ -143,7 +143,14 @@ class KeywordManager:
     def get_statistics(self) -> Dict:
         """Получить статистику по ключевым словам"""
         if not self.keywords:
-            return {"total": 0}
+            return {
+                "total": 0,
+                "avg_frequency": 0,
+                "max_frequency": 0,
+                "min_frequency": 0,
+                "avg_word_count": 0,
+                "categories": 0
+            }
         
         frequencies = [kw.frequency for kw in self.keywords]
         word_counts = [kw.word_count() for kw in self.keywords]
@@ -153,7 +160,7 @@ class KeywordManager:
             "avg_frequency": sum(frequencies) / len(frequencies) if frequencies else 0,
             "max_frequency": max(frequencies) if frequencies else 0,
             "min_frequency": min(frequencies) if frequencies else 0,
-            "avg_word_count": sum(word_counts) / len(word_counts),
+            "avg_word_count": sum(word_counts) / len(word_counts) if word_counts else 0,
             "categories": len(set(kw.category for kw in self.keywords if kw.category))
         }
     
